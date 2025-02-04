@@ -8,7 +8,8 @@ from tkinter import ttk
 from tkinter import filedialog as fd
 from tkinter import messagebox
 
-
+#O projeto utiliza o Tesseract OCR para extrair texto das imagens geradas a partir do PDF.  
+#Para que o programa funcione corretamente, é necessário instalar o Tesseract no sistema e configurar seu caminho no código.  
 caminho_tesseract = r"C:\Program Files\Tesseract-OCR" 
 pytesseract.pytesseract.tesseract_cmd = caminho_tesseract + r"\tesseract.exe"
 caminho_arquivo_txt = ""
