@@ -8,10 +8,10 @@ from tkinter import ttk
 from tkinter import filedialog as fd
 from tkinter import messagebox
 
-caminho_tesseract = r"C:\Program Files\Tesseract-OCR" #o "r" antes (raw string), serve pra dizer pro python que não quer que leia nada como um char especial, quer que leia do jeito que está
-pytesseract.pytesseract.tesseract_cmd = caminho_tesseract + r"\tesseract.exe"
-caminho_arquivo_txt = r"F:\pdfada\arquivo.txt"
 
+caminho_tesseract = r"C:\Program Files\Tesseract-OCR" 
+pytesseract.pytesseract.tesseract_cmd = caminho_tesseract + r"\tesseract.exe"
+caminho_arquivo_txt = ""
 caminho_final_arquivos = ""
 caminho_arquivo_pdf = ""
 
@@ -66,7 +66,7 @@ def selecionar_caminho_arquivo_pdf():
 def converter():
     if not caminho_final_arquivos:
         messagebox.showerror("Erro", "Nenhum diretório selecionado!")
-        return #return serve para parar a função caso a condição não seja satisfeita, sem return, tentaria rodar e daria erro
+        return
     if not caminho_arquivo_pdf:
         messagebox.showerror("Erro", "Nenhum arquivo PDF selecionado!")
         return 
@@ -101,6 +101,3 @@ botao_converter_pdf_para_imagem = ttk.Button(window, text="Converter", width=22,
 botao_converter_pdf_para_imagem.pack(pady=2)
 
 window.mainloop()
-
-#Uso de Pillow - básico
-#Uso de cv2 - avançado
