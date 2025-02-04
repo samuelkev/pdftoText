@@ -73,7 +73,16 @@ def converter():
     messagebox.showinfo("Conversão", "Iniciando conversão")
     pdf_para_imagem()
     imagem_para_texto()
+    if var_checkbox.get():
+        apagar_imagens()
     messagebox.showinfo("Sucesso", "Conversão concluída com sucesso!")
+
+def apagar_imagens():
+    for arquivo in os.listdir(caminho_final_arquivos):
+        caminho_completo = os.path.join(caminho_final_arquivos, arquivo)
+        if os.path.isfile(caminho_completo) and arquivo.lower().endswith((".png", ".jpg", ".jpeg")):
+            os.remove(caminho_completo)
+            print(f"O arquivo {arquivo} foi removido")
 
 window = tk.Tk()
 window.title("Imagem para PDF")
@@ -82,6 +91,8 @@ window.resizable(False, False)
 
 title = tk.Label(window, text="PDF to IMAGE to TXT", font=("Calibri 20 bold"))
 title.pack()
+
+var_checkbox = tk.BooleanVar()
 
 label_frame = tk.LabelFrame(window, borderwidth=2)
 label_frame.pack()
@@ -97,6 +108,8 @@ botao_arquivo_pdf = ttk.Button(label_frame, text="Selecionar arquivo", command=s
 botao_arquivo_pdf.grid(row=3, column=0, sticky="w", pady=(0, 4), padx=2)
 label_pdf = tk.Label(label_frame, text="Nenhum arquivo selecionado", wraplength=300)
 label_pdf.grid(row=3, column=1, sticky="w")
+checkbox_apagar_imagens = tk.Checkbutton(window, text="Apagar imagens após conversão", variable=var_checkbox)
+checkbox_apagar_imagens.pack()
 botao_converter_pdf_para_imagem = ttk.Button(window, text="Converter", width=22, command=converter)
 botao_converter_pdf_para_imagem.pack(pady=2)
 
