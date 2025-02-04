@@ -1,6 +1,6 @@
 # PDF to Image to TXT - Conversor de PDF para Texto  
 
-Este é um aplicativo simples desenvolvido com **Python e Tkinter** que converte **arquivos PDF** em **imagens** e, em seguida, **extrai o texto** delas usando OCR (Tesseract). O objetivo deste projeto é facilitar a conversão de documentos escaneados para texto editável.  
+Este é um aplicativo simples desenvolvido com **Python e Tkinter** que converte **arquivos PDF** em **imagens** e, em seguida, **extrai o texto** delas usando **OCR (Tesseract)**. O objetivo deste projeto é facilitar a conversão de documentos escaneados para texto editável.  
 
 ---
 
