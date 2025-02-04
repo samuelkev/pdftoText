@@ -76,6 +76,7 @@ def converter():
     imagem_para_texto()
     if var_checkbox.get():
         apagar_imagens()
+        messagebox.showinfo("Sucesso", "Imagens apagadas com sucesso")
     messagebox.showinfo("Sucesso", "Conversão concluída com sucesso!")
 
 def apagar_imagens():
