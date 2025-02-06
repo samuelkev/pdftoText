@@ -8,8 +8,8 @@ from tkinter import ttk
 from tkinter import filedialog as fd
 from tkinter import messagebox
 
-# O projeto utiliza o Tesseract OCR para extrair texto das imagens geradas a partir do PDF.  
-# Para que o programa funcione corretamente, é necessário instalar o Tesseract no sistema e configurar seu caminho no código.  
+#. O projeto utiliza o Tesseract OCR para extrair texto das imagens geradas a partir do PDF.  
+#. Para que o programa funcione corretamente, é necessário instalar o Tesseract no sistema e configurar seu caminho no código.  
 caminho_tesseract = r"C:\Program Files\Tesseract-OCR" 
 pytesseract.pytesseract.tesseract_cmd = caminho_tesseract + r"\tesseract.exe"
 caminho_arquivo_txt = ""
@@ -24,12 +24,11 @@ def pdf_para_imagem():
    
     arquivo_pdf = fitz.open(caminho_arquivo_pdf)
 
-    for numero_pagina in range(len(arquivo_pdf)):
-        pagina = arquivo_pdf[numero_pagina]
+    for numero_pagina, pagina in enumerate(arquivo_pdf, start=1):
         imagem = pagina.get_pixmap(matrix=fitz.Matrix(2, 2))
-        caminho_imagem = os.path.join(caminho_final_arquivos, f"pagina_{numero_pagina + 1}.jpg")
+        caminho_imagem = os.path.join(caminho_final_arquivos, f"pagina_{numero_pagina}.jpg")
         imagem.save(caminho_imagem)
-        print(f"Página {numero_pagina + 1} salva como {caminho_imagem}")
+        print(f"Página {numero_pagina} salva como {caminho_imagem}")
     arquivo_pdf.close()
     print("Conversão concluída com sucesso")
 
