@@ -17,4 +17,3 @@ Este é um aplicativo simples desenvolvido com **Python e Tkinter** que converte
 -  **Tesseract OCR** → Para extração de texto das imagens.  
 -  **Tkinter** → Para criação da interface gráfica.  
 
----
